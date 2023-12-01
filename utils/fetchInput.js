@@ -4,6 +4,14 @@ import fs from 'node:fs';
 dotenv.config();
 
 const fetchInput = async (year, day) => {
+  const folderPath = `./${year}/${day}`;
+  const filePath = `${folderPath}/input.txt`;
+
+  if (fs.existsSync(filePath)) {
+    // input is already there.
+    return;
+  }
+
   const res = await fetch(`https://adventofcode.com/${year}/day/${day}/input`, {
     headers: {
       cookie: `session=${process.env.SESSION_ID}`,
@@ -16,12 +24,11 @@ const fetchInput = async (year, day) => {
     throw new Error('Advent of Code did not return a puzzle input');
   }
 
-  const path = `./${year}/${day}`;
-  if (!fs.existsSync(path)) {
-    fs.mkdirSync(path, { recursive: true });
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, { recursive: true });
   }
 
-  fs.writeFileSync(`${path}/input.txt`, text);
+  fs.writeFileSync(filePath, text);
 
   return text;
 };

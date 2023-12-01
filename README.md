@@ -8,7 +8,7 @@ https://adventofcode.com/
 
 | Day | Challenge Name          | Stars |
 | --- | ----------------------- | ----- |
-| 1   |                         | ⭐⭐  |
+| 1   | Trebuchet?!             | ⭐⭐  |
 | 2   |                         |       |
 | 3   |                         |       |
 | 4   |                         |       |
