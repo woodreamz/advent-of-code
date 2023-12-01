@@ -5,6 +5,9 @@ console.log('Advent Of Code - Day 1');
 
 fetchInput(2023, 1);
 
+/**
+ * Part 1
+ */
 const part1 = () => {
   const text = fs.readFileSync('./2023/1/input.txt', 'utf-8');
   const sum = text.split('\n').reduce((acc, line) => {
@@ -19,6 +22,9 @@ const part1 = () => {
   return sum;
 };
 
+/**
+ * Part 2
+ */
 const part2 = () => {
   const allDigits = [
     'one',
