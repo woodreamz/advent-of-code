@@ -9,8 +9,8 @@ console.log('Advent Of Code - Day ' + DAY);
  * Part 1
  */
 const part1 = () => {
-  const text = fs.readFileSync('./2023/1/input.txt', 'utf-8');
-  const sum = text.split('\n').reduce((acc, line) => {
+  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
+  const sum = input.split('\n').reduce((acc, line) => {
     const numbers = line.replace(/[^0-9]/g, '');
     let calibrationValue = numbers[0] + numbers[0];
     if (numbers.length > 1) {
@@ -47,8 +47,8 @@ const part2 = () => {
     '9',
   ];
 
-  const text = fs.readFileSync('./2023/1/input.txt', 'utf-8');
-  const sum = text.split('\n').reduce((acc, line) => {
+  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
+  const sum = input.split('\n').reduce((acc, line) => {
     let calibrationValue = [null, null];
     let firstIndex = 999;
     let lastIndex = -1;

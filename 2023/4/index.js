@@ -9,6 +9,7 @@ console.log('Advent Of Code - Day ' + DAY);
  * Part 1
  */
 const part1 = () => {
+  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
   return '';
 };
 
@@ -16,6 +17,7 @@ const part1 = () => {
  * Part 2
  */
 const part2 = () => {
+  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
   return '';
 };
 
