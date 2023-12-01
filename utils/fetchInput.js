@@ -3,6 +3,9 @@ import fs from 'node:fs';
 
 dotenv.config();
 
+/**
+ * Fetch puzzle input and save it locally in the corresponding folder.
+ */
 const fetchInput = async (year, day) => {
   const folderPath = `./${year}/${day}`;
   const filePath = `${folderPath}/input.txt`;
