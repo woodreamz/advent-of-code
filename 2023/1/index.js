@@ -1,9 +1,9 @@
 import fetchInput from '../../utils/fetchInput.js';
 import fs from 'node:fs';
 
-console.log('Advent Of Code - Day 1');
-
-fetchInput(2023, 1);
+const DAY = 1;
+fetchInput(2023, DAY);
+console.log('Advent Of Code - Day ' + DAY);
 
 /**
  * Part 1

@@ -1,7 +1,7 @@
 import fetchInput from '../../utils/fetchInput.js';
 import fs from 'node:fs';
 
-const DAY = 2;
+const DAY = 4;
 fetchInput(2023, DAY);
 console.log('Advent Of Code - Day ' + DAY);
 
