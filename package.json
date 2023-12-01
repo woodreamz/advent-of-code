@@ -5,7 +5,7 @@
   "description": "Repository for Advent of Code",
   "main": "index.js",
   "scripts": {
-    "start": "node ./2023/1/index.js",
+    "start": "node ./utils/start.js",
     "push": "git push atrius main:KevinNove"
   },
   "keywords": [],
