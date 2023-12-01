@@ -2,11 +2,10 @@
   "name": "advent-of-code",
   "version": "1.0.0",
   "type": "module",
-  "description": "Repository for Advent of Code d",
+  "description": "Repository for Advent of Code",
   "main": "index.js",
   "scripts": {
-    "start": "node ./2023/1/index.js",
-    "$setup": "node ./utils/setup.js"
+    "start": "node ./2023/1/index.js"
   },
   "keywords": [],
   "author": "Kévin Nové",
