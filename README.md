@@ -2,6 +2,14 @@
 
 https://adventofcode.com/
 
+## Usage
+
+Run `start` script with day parameter.
+
+```bash
+pnpm start 1
+``````
+
 ## Progress
 
 ### 2023
