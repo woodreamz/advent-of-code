@@ -10,7 +10,10 @@ console.log('Advent Of Code - Day ' + DAY);
  */
 const part1 = () => {
   const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  return '';
+  const lines = input.split('\n');
+  let sum = 0;
+
+  return sum;
 };
 
 /**
@@ -18,7 +21,10 @@ const part1 = () => {
  */
 const part2 = () => {
   const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  return '';
+  const lines = input.split('\n');
+  let sum = 0;
+
+  return sum;
 };
 
 console.log('Part 1 = ', part1());
