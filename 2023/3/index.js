@@ -111,7 +111,6 @@ const part2 = () => {
           let match = regex.exec(prevLine);
 
           while (match !== null) {
-            // console.log(match[0], match.index);
             if (
               (match.index <= starIdx + 1 && match.index >= starIdx - 1) ||
               (match.index + match[0].length - 1 >= starIdx - 1 &&
@@ -129,7 +128,6 @@ const part2 = () => {
           let match = regex.exec(nextLine);
 
           while (match !== null) {
-            // console.log(match[0], match.index);
             if (
               (match.index <= starIdx + 1 && match.index >= starIdx - 1) ||
               (match.index + match[0].length - 1 >= starIdx - 1 &&
