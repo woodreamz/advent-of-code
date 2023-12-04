@@ -18,12 +18,16 @@ const part1 = () => {
     const winners = temp[0].trim().split(/\s+/);
     const numbers = temp[1].trim().split(/\s+/);
 
-    let score = 0;
-    numbers.forEach((n) => {
+    const score = numbers.reduce((acc, n) => {
       if (winners.includes(n)) {
-        score === 0 ? (score = score + 1) : (score = score * 2);
+        if (acc === 0) {
+          return acc + 1;
+        } else {
+          return acc * 2;
+        }
       }
-    });
+      return acc;
+    }, 0);
     sum += score;
   });
 
@@ -34,40 +38,49 @@ const part1 = () => {
  * Part 2
  */
 const part2 = () => {
-  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
+  const input = fs.readFileSync('./2023/' + DAY + '/sample.txt', 'utf-8');
   const lines = input.split('\n').map((line) => line.substring(10, line.length));
-  let sum = 0;
-  const wins = [];
 
-  lines.forEach((line) => {
+  const wins = lines.map((line) => {
     const temp = line.split(' | ');
     const winners = temp[0].trim().split(/\s+/);
     const numbers = temp[1].trim().split(/\s+/);
-
-    let score = 0;
-    numbers.forEach((n) => {
-      if (winners.includes(n)) {
-        score++;
-      }
-    });
-    wins.push(score);
+    return numbers.reduce((acc, n) => (winners.includes(n) ? acc + 1 : acc), 0);
   });
 
   console.log(wins);
 
-  const processCard = (score, index) => {
-    if (score > 0) {
-      sum = sum + score + 1;
-      for (let i = index + 1; i <= index + score; i++) {
-        processCard(wins[i], i);
+  const processCard = (index) => {
+    instances[index]++;
+    if (wins[index] > 0) {
+      sum = sum + wins[index];
+      for (let i = index + 1; i <= index + wins[index]; i++) {
+        console.log('Card', index + 1, 'gives card', i + 1);
+        processCard(i);
       }
     }
   };
 
-  wins.forEach(processCard);
+  const instances = [0, 0, 0, 0, 0, 0];
+
+  let sum = 0;
+  wins.forEach((w, i) => {
+    sum++;
+    console.log(i + 1, '-----------');
+    processCard(i);
+  });
+  console.log(instances);
 
   return sum;
 };
 
 console.log('Part 1 = ', part1());
 console.log('Part 2 = ', part2());
+
+// Wins
+// [ 4, 2, 1, 1, 0, 0 ]
+// Instances
+// [ 1, 2, 4, 8, 10, 1 ]
+
+//corrects instances
+//[ 1, 2, 4, 8, 14, 1 ]
