@@ -15,6 +15,9 @@ const fetchInput = async (year, day) => {
     return;
   }
 
+  // Create file.
+  fs.closeSync(fs.openSync(filePath, 'w'));
+
   const res = await fetch(`https://adventofcode.com/${year}/day/${day}/input`, {
     headers: {
       cookie: `session=${process.env.SESSION_ID}`,
