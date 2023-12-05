@@ -38,7 +38,7 @@ const part1 = () => {
  * Part 2
  */
 const part2 = () => {
-  const input = fs.readFileSync('./2023/' + DAY + '/sample.txt', 'utf-8');
+  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
   const lines = input.split('\n').map((line) => line.substring(10, line.length));
 
   const wins = lines.map((line) => {
@@ -48,39 +48,23 @@ const part2 = () => {
     return numbers.reduce((acc, n) => (winners.includes(n) ? acc + 1 : acc), 0);
   });
 
-  console.log(wins);
-
   const processCard = (index) => {
-    instances[index]++;
     if (wins[index] > 0) {
       sum = sum + wins[index];
       for (let i = index + 1; i <= index + wins[index]; i++) {
-        console.log('Card', index + 1, 'gives card', i + 1);
         processCard(i);
       }
     }
   };
 
-  const instances = [0, 0, 0, 0, 0, 0];
-
   let sum = 0;
   wins.forEach((w, i) => {
     sum++;
-    console.log(i + 1, '-----------');
     processCard(i);
   });
-  console.log(instances);
 
   return sum;
 };
 
 console.log('Part 1 = ', part1());
 console.log('Part 2 = ', part2());
-
-// Wins
-// [ 4, 2, 1, 1, 0, 0 ]
-// Instances
-// [ 1, 2, 4, 8, 10, 1 ]
-
-//corrects instances
-//[ 1, 2, 4, 8, 14, 1 ]
