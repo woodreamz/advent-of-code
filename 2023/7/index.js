@@ -1,7 +1,7 @@
 import fetchInput from '../../utils/fetchInput.js';
 import { getLines } from '../../utils/helpers.js';
 
-const DAY = 5;
+const DAY = 6;
 fetchInput(2023, DAY);
 console.log('Advent Of Code - Day ' + DAY);
 

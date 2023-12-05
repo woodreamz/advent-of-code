@@ -1,5 +1,5 @@
 import fetchInput from '../../utils/fetchInput.js';
-import fs from 'node:fs';
+import { getLines } from '../../utils/helpers.js';
 
 const DAY = 1;
 fetchInput(2023, DAY);
@@ -9,8 +9,7 @@ console.log('Advent Of Code - Day ' + DAY);
  * Part 1
  */
 const part1 = () => {
-  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  const sum = input.split('\n').reduce((acc, line) => {
+  const sum = getLines(2023, DAY).reduce((acc, line) => {
     const numbers = line.replace(/[^0-9]/g, '');
     let calibrationValue = numbers[0] + numbers[0];
     if (numbers.length > 1) {
@@ -47,8 +46,7 @@ const part2 = () => {
     '9',
   ];
 
-  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  const sum = input.split('\n').reduce((acc, line) => {
+  const sum = getLines(2023, DAY).reduce((acc, line) => {
     let calibrationValue = [null, null];
     let firstIndex = 999;
     let lastIndex = -1;

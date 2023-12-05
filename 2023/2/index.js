@@ -1,5 +1,5 @@
 import fetchInput from '../../utils/fetchInput.js';
-import fs from 'node:fs';
+import { getLines } from '../../utils/helpers.js';
 
 const DAY = 2;
 fetchInput(2023, DAY);
@@ -15,8 +15,7 @@ const part1 = () => {
     blue: 14,
   };
 
-  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  const sum = input.split('\n').reduce((acc, line) => {
+  const sum = getLines(2023, DAY).reduce((acc, line) => {
     let isPossible = true;
     const id = parseInt(line.substring(5, line.indexOf(':')));
     const game = line.substring(line.indexOf(':') + 2, line.length);
@@ -46,8 +45,7 @@ const part1 = () => {
  * Part 2
  */
 const part2 = () => {
-  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  const sum = input.split('\n').reduce((acc, line) => {
+  const sum = getLines(2023, DAY).reduce((acc, line) => {
     const power = {
       red: 0,
       green: 0,

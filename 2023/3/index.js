@@ -1,5 +1,5 @@
 import fetchInput from '../../utils/fetchInput.js';
-import fs from 'node:fs';
+import { getLines } from '../../utils/helpers.js';
 
 const DAY = 3;
 fetchInput(2023, DAY);
@@ -9,8 +9,7 @@ console.log('Advent Of Code - Day ' + DAY);
  * Part 1
  */
 const part1 = () => {
-  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  const lines = input.split('\n');
+  const lines = getLines(2023, DAY);
   let sum = 0;
 
   const matchNumber = (string, index) => {
@@ -70,8 +69,7 @@ const part1 = () => {
  * Part 2
  */
 const part2 = () => {
-  const input = fs.readFileSync('./2023/' + DAY + '/input.txt', 'utf-8');
-  const lines = input.split('\n');
+  const lines = getLines(2023, DAY);
   let sum = 0;
 
   const matchNumber = (string, index) => {
