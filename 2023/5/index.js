@@ -41,7 +41,7 @@ const part1 = () => {
     const map = mapping.find((m) => m.source === source);
     if (map) {
       const match = map.ranges.find((ranges) => {
-        return value >= ranges[1] && value <= ranges[1] + ranges[2];
+        return value >= ranges[1] && value <= ranges[1] + ranges[2] - 1;
       });
 
       if (match) {
@@ -66,7 +66,7 @@ const part1 = () => {
  * Part 2
  */
 const part2 = () => {
-  const lines = getLines(2023, DAY, 'input');
+  const lines = getLines(2023, DAY);
   const seeds = lines[0]
     .split(' ')
     .map((seed) => parseInt(seed))
