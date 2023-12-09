@@ -13,23 +13,22 @@ const part1 = () => {
 
   return lines
     .map((line) => {
-      const history = line.split(' ').map(Number);
-      const seq = [history];
-      console.log(history, seq);
+      const history = line.split(' ').map((n) => parseInt(n));
+      const res = [history];
 
-      while (seq.at(-1).some((n) => n !== 0)) {
-        const last = seq.at(-1);
+      while (res.at(-1).some((n) => n !== 0)) {
+        const last = res.at(-1);
         const next = last.slice(1).map((v, i) => v - last[i]);
-        seq.push(next);
+        res.push(next);
       }
 
-      seq.at(-1).push(0);
+      res.at(-1).push(0);
 
-      for (let i = seq.length - 2; i >= 0; i--) {
-        seq[i].push(seq[i].at(-1) + seq[i + 1].at(-1));
+      for (let i = res.length - 2; i >= 0; i--) {
+        res[i].push(res[i].at(-1) + res[i + 1].at(-1));
       }
 
-      return seq[0].at(-1);
+      return res[0].at(-1);
     })
     .reduce((a, b) => a + b);
 };
@@ -42,22 +41,25 @@ const part2 = () => {
 
   return lines
     .map((line) => {
-      const history = line.split(' ').reverse().map(Number);
-      const seq = [history];
+      const history = line
+        .split(' ')
+        .reverse()
+        .map((n) => parseInt(n));
+      const res = [history];
 
-      while (seq.at(-1).some((n) => n !== 0)) {
-        const last = seq.at(-1);
+      while (res.at(-1).some((n) => n !== 0)) {
+        const last = res.at(-1);
         const next = last.slice(1).map((v, i) => v - last[i]);
-        seq.push(next);
+        res.push(next);
       }
 
-      seq.at(-1).push(0);
+      res.at(-1).push(0);
 
-      for (let i = seq.length - 2; i >= 0; i--) {
-        seq[i].push(seq[i].at(-1) + seq[i + 1].at(-1));
+      for (let i = res.length - 2; i >= 0; i--) {
+        res[i].push(res[i].at(-1) + res[i + 1].at(-1));
       }
 
-      return seq[0].at(-1);
+      return res[0].at(-1);
     })
     .reduce((a, b) => a + b);
 };
