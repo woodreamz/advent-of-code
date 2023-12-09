@@ -35,8 +35,11 @@ const part1 = () => {
  * Part 2
  */
 const part2 = () => {
-  const lines = getLines(2023, DAY, 'input');
+  const lines = getLines(2023, DAY);
   const instructions = lines[0].trim();
+
+  const gcd = (a, b) => (!b ? a : gcd(b, a % b));
+  const lcm = (a, b) => (a * b) / gcd(a, b);
 
   const network = new Map();
   lines.forEach((line) => {
@@ -47,28 +50,20 @@ const part2 = () => {
     }
   });
 
-  const next = [...network.keys()].filter((key) => key.endsWith('A'));
-  // console.log(network, next);
+  let nodes = [...network.keys()].filter((key) => key.endsWith('A'));
+  const ghostSteps = [];
   let steps = 0;
-  while (!next.every((n) => n.endsWith('Z'))) {
-    for (let i = 0; i < next.length; i++) {
-      next[i] = network.get(next[i])[instructions[steps % instructions.length]];
-    }
-
-    // if (steps % 100000000 === 0) {
-    //   console.log(
-    //     steps,
-    //     instructions[steps % instructions.length],
-    //     ': ',
-    //     next,
-    //     ' ==> ',
-    //     network.get(next[i])[instructions[steps % instructions.length]]
-    //   );
-    // }
+  while (!nodes.every((n) => n.endsWith('Z'))) {
+    const instruction = instructions[steps % instructions.length];
+    const nextNodes = nodes.map((n) => network.get(n)[instruction]).filter((n) => !n.endsWith('Z'));
     steps++;
+    if (nodes.length != nextNodes.length) {
+      ghostSteps.push(steps);
+    }
+    nodes = nextNodes;
   }
 
-  return steps;
+  return ghostSteps.reduce(lcm, 1);
 };
 
 console.log('Part 1 = ', part1());
