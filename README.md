@@ -7,7 +7,7 @@ https://adventofcode.com/
 ## Usage
 
 1. Create a `.env` file and add variable `SESSION_ID=YOUR_A_DVENT_OF_CODE_COOKIE`
-Run `start` script with day parameter.
+2. Run `start` script with day parameter.
 
 ```bash
 pnpm start 1
